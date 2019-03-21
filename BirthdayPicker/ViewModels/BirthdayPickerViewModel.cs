@@ -84,7 +84,7 @@ namespace BirthdayPicker.ViewModels
                 return _resultInfo; 
 
             }
-            set
+            private set
             {
                 _resultInfo = value;
                 OnPropertyChanged();

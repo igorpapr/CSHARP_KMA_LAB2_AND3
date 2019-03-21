@@ -52,7 +52,7 @@ namespace BirthdayPicker.Models
             }
             private set
             {
-                if (new EmailAddressAttribute().IsValid(_email))
+                if (new EmailAddressAttribute().IsValid(value))
                 {
                     _email = value;
                 }
@@ -60,7 +60,6 @@ namespace BirthdayPicker.Models
                 {
                     throw new InvalidEmailException("Error! Invalid email!");
                 }
-
             }
         }
 
@@ -114,6 +113,7 @@ namespace BirthdayPicker.Models
             _firstName = firstName;
             _lastName = lastName;
             Email = email;
+            
             _date = date;
 
             int age = ComputeAge();
@@ -206,9 +206,9 @@ namespace BirthdayPicker.Models
         }
 
         /*Due to the fact that chinese new year starts
-          according to the moon phases, and it can be [Jan21;Feb21],
+          according to the moon phases, and it can be [Jan21; Feb21],
           for more simplicity we'll suppose that in the year when user was born,
-          China was celebrating New Year at 21 of Jan*/
+          China was celebrating New Year at 21 of January*/
         private void CorrectChineseYear(ref int year)
         {
             if ((Date.Month == 1) && Date.Day < 21)
